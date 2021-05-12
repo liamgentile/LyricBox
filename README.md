@@ -16,7 +16,7 @@ http://f4df671f6a7f.ngrok.io
 
 ### Data Collection
 
-I collected lyric data from the website az-lyrics.com. I used a number of different webscraping techniques and packages, namely Selenium and Zyte. I also used a VPN to evade being blocked by the website.
+I collected lyric data from the website az-lyrics.com. I used a number of different webscraping techniques and packages, namely Selenium and Zyte. I also used a VPN to evade being blocked by the website. 
 
 The data collection process was composed of two steps:
 

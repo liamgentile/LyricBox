@@ -6,6 +6,12 @@ The webapp for people to use LyricBox runs from Google Colaboratory and is built
 You can find it here:
 http://f4df671f6a7f.ngrok.io
 
+## Project Summary
+
+### Data Collection
+
+
+
 ## File Reference 
 
 LyricBoxWebApp.ipynb

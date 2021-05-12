@@ -10,6 +10,14 @@ http://f4df671f6a7f.ngrok.io
 
 ### Data Collection
 
+### Data Cleaning
+
+### Modeling
+
+### Model Optimization
+
+### How could my project be improved?
+
 
 
 ## File Reference 

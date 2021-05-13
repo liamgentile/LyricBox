@@ -5,25 +5,6 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.models import load_model
 from tensorflow.keras.models import Sequential
 import pickle
-import requests
-from io import StringIO
-
-url_folk_model='https://drive.google.com/file/d/1sTvtTJ1X54-xXGWqY-G0WlgWyvNt8W2G/view?usp=sharing'
-url_pop_model='https://drive.google.com/file/d/1-WTdEilbNrGFB4T5eMYsIbayeZp9KPjt/view?usp=sharing'
-url_hiphop_model='https://drive.google.com/file/d/1-CS807o8W97X98YtIzFfeWMiq-j_LXr1/view?usp=sharing'
-
-url_folk_tokenizer='https://drive.google.com/file/d/1DxAUt-eJGHxk_wTF21w7PGQvC6I8MXJw/view?usp=sharing'
-url_pop_tokenizer='https://drive.google.com/file/d/1-QWiVM_HPFO6n2lB6bx5LD11ITs_87Uu/view?usp=sharing'
-url_hiphop_tokenizer='https://drive.google.com/file/d/1-CMrvEU2U7gm0uDt2Qlc9xNZBNVMuI3V/view?usp=sharing'
-
-fm_path = 'https://drive.google.com/uc?export=download&id='+url_folk_model.split('/')[-2]
-pm_path = 'https://drive.google.com/uc?export=download&id='+url_pop_model.split('/')[-2]
-hm_path = 'https://drive.google.com/uc?export=download&id='+url_hiphop_model.split('/')[-2]
-
-ft_path = 'https://drive.google.com/uc?export=download&id='+url_folk_tokenizer.split('/')[-2]
-pt_path = 'https://drive.google.com/uc?export=download&id='+url_pop_tokenizer.split('/')[-2]
-ht_path = 'https://drive.google.com/uc?export=download&id='+url_hiphop_tokenizer.split('/')[-2]
-
 
 
 '''
@@ -53,21 +34,21 @@ genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
 #folk_model import
-folk_model = load_model(fm_path, compile=False)
+folk_model = load_model('s3://lyricbox/models/folk_lyrics_RNN_model4.h5', compile=False)
 #pop_model import
-pop_model = load_model(pm_path, compile=False)
+pop_model = load_model('s3://lyricbox/models/pop_lyric_model.h5', compile=False)
 #hiphop_model import
-hiphop_model = load_model(hm_path, compile=False)
+hiphop_model = load_model('s3://lyricbox/models/rap_lyric_model.h5', compile=False)
 
 
 #tokenizer_folk import
-with open(ft_path, 'rb') as handle:
+with open('s3://lyricbox/tokenizers/folk_tokenizer.pkl', 'rb') as handle:
     tokenizer_folk = pickle.load(handle)
 #tokenizer_pop import
-with open(pt_path, 'rb') as handle:
+with open('s3://lyricbox/tokenizers/pop_tokenizer.pkl', 'rb') as handle:
     tokenizer_pop = pickle.load(handle)
 #tokenizer_hiphop import
-with open(ht_path, 'rb') as handle:
+with open('s3://lyricbox/tokenizers/rap_tokenizer.pkl', 'rb') as handle:
     tokenizer_hiphop = pickle.load(handle)
 
 

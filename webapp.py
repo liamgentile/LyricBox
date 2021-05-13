@@ -142,7 +142,7 @@ if st.button("Generate"):
 			st.write(generated_text)
    
 		except:
-    			raise Exception("Please try again. Perhaps a word you prompted is not in the model's vocabulary.")
+    			st.write("Please try again. Perhaps a word you prompted is not in the model's vocabulary.")
 	else: 
 		st.write("Please click generate again.")
 		

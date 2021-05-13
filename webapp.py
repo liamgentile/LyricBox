@@ -36,6 +36,7 @@ genres = st.selectbox("Which genre do you want to stylize your idea generator?",
 
 client = boto3.client('s3')
 client.download_file('lyricbox',
+		     'models',
                      'folk_lyrics_RNN_model4.h5',
                      'pop_lyric_model.h5',
 		     'rap_lyric_model.h5')

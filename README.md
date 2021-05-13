@@ -1,7 +1,7 @@
 # LyricBox
 A neural network powered idea generator for artists with writer's block.
 
-The web application for people to use LyricBox runs from Google Colaboratory and is built with Python, Streamlit, and Ngrok.
+The web application for people to use LyricBox runs through Heroku and is built with Python and Streamlit. In order to save memory the models and tokenizers required for the app are loaded in from Google Drive.
 
 You can find it here:
 http://f4df671f6a7f.ngrok.io

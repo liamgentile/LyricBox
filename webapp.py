@@ -4,8 +4,7 @@ import numpy as np
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.models import load_model
 from tensorflow.keras.models import Sequential
-from tensorflow import keras
-import tensorflow as tf
+import boto3
 import pickle
 
 
@@ -35,14 +34,22 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
+client = boto3.client('s3')
+client.download_file(lyricbox,
+                     'folk_lyrics_RNN_model4.h5',
+                     'pop_lyric_model.h5',
+		     'rap_lyric_model.h5')
+
+
+
 #folk_model import
-folk_model=load_model('s3://lyricbox/models/folk_lyrics_RNN_model4', compile=False)
+folk_model=load_model('folk_lyrics_RNN_model4.h5', compile=False)
 
 #pop_model import
-pop_model=load_model('s3://lyricbox/models/pop_lyric_model', compile=False)
+pop_model=load_model('pop_lyric_model.h5', compile=False)
 
 #hiphop_model import
-hiphop_model=load_model('s3://lyricbox/models/rap_lyric_model', compile=False)
+hiphop_model=load_model('rap_lyric_model.h5', compile=False)
 
 
 #tokenizer_folk import

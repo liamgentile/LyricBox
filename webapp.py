@@ -36,19 +36,13 @@ genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
 #folk_model import
-export_dir_f='s3://lyricbox/models/folk_lyrics_RNN_model4.h5'
-converter_f = tf.lite.TFLiteConverter.from_saved_model(export_dir_f)
-folk_model = converter_f.convert()
+folk_model=load_model('s3://lyricbox/models/folk_lyrics_RNN_model4', compile=False)
 
 #pop_model import
-export_dir_p='s3://lyricbox/models/pop_lyric_model.h5'
-converter_p = tf.lite.TFLiteConverter.from_saved_model(export_dir_p)
-pop_model = converter_p.convert()
+pop_model=load_model('s3://lyricbox/models/pop_lyric_model', compile=False)
 
 #hiphop_model import
-export_dir_h='s3://lyricbox/models/rap_lyric_model.h5'
-converter_h = tf.lite.TFLiteConverter.from_saved_model(export_dir_h)
-hiphop_model = converter_h.convert()
+hiphop_model=load_model('s3://lyricbox/models/rap_lyric_model', compile=False)
 
 
 #tokenizer_folk import

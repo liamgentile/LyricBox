@@ -33,21 +33,21 @@ genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
 #folk_model import
-folk_model = load_model('https://drive.google.com/file/d/uc?id=1sTvtTJ1X54-xXGWqY-G0WlgWyvNt8W2G', compile=False)
+folk_model = load_model('s3://lyricbox/models/folk_lyrics_RNN_model4.h5', compile=False)
 #pop_model import
-pop_model = load_model('https://drive.google.com/file/d/uc?id=1-WTdEilbNrGFB4T5eMYsIbayeZp9KPjt', compile=False)
+pop_model = load_model('s3://lyricbox/models/pop_lyric_model.h5', compile=False)
 #hiphop_model import
-hiphop_model = load_model('https://drive.google.com/file/d/uc?id=1-CS807o8W97X98YtIzFfeWMiq-j_LXr1', compile=False)
+hiphop_model = load_model('s3://lyricbox/models/rap_lyric_model.h5', compile=False)
 
 
 #tokenizer_folk import
-with open('https://drive.google.com/file/d/uc?id=1DxAUt-eJGHxk_wTF21w7PGQvC6I8MXJw', 'rb') as handle:
+with open('s3://lyricbox/tokenizers/folk_tokenizer.pkl', 'rb') as handle:
     tokenizer_folk = pickle.load(handle)
 #tokenizer_pop import
-with open('https://drive.google.com/file/d/uc?id=1-QWiVM_HPFO6n2lB6bx5LD11ITs_87Uu', 'rb') as handle:
+with open('s3://lyricbox/tokenizers/pop_tokenizer.pkl', 'rb') as handle:
     tokenizer_pop = pickle.load(handle)
 #tokenizer_hiphop import
-with open('https://drive.google.com/file/d/uc?id=1-CMrvEU2U7gm0uDt2Qlc9xNZBNVMuI3V', 'rb') as handle:
+with open('s3://lyricbox/tokenizers/rap_tokenizer.pkl', 'rb') as handle:
     tokenizer_hiphop = pickle.load(handle)
 
 

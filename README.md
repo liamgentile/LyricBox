@@ -22,7 +22,7 @@ The data collection process was composed of two steps:
 
 #### 1. Song Name Collection
 
-To start, I made three lists of artists from their respective genres. I formatted the artist names according to how they were written in the AZ lyrics url. For example, Bob Dylan's song list can be found here: https://www.azlyrics.com/d/dylan.html. When looping through the artist lists and scraping the song names with Selenium I switched web pages in a for loop by using .format on azlyrics.com/{}/{}.html. You can find a more detailed description of this process and the code in the file called SongNameCollection.ipynb. 
+To start, I made three lists of artists from their respective genres. I formatted the artist names according to how they were written in the AZ lyrics url. For example, Bob Dylan's song list can be found here: https://www.azlyrics.com/d/dylan.html. When looping through the artist lists and scraping the song names with Selenium, I switched web pages in a for loop by using .format on azlyrics.com/{}/{}.html. You can find a more detailed description of this process and the code in the file called SongNameCollection.ipynb. 
 
 #### 2. Song Lyric Collection
 

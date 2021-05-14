@@ -67,3 +67,9 @@ LyricBoxWebApp.ipynb
 
 DataCleaning.ipynb
 - a notebook in which I did most of the data preprocessing for the three lyric datasets.
+
+WebScrapingNotebooks
+- contains the notebooks in which I scraped the song names and song lyrics from AZ-lyrics.com
+
+Modeling
+- contains the notebooks in which I arranged and ran the final models for the three genres of lyrics. 

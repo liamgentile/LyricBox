@@ -1,13 +1,7 @@
 # LyricBox
 A neural network powered idea generator for artists with writer's block.
 
-The web application for people to use LyricBox runs through Google Colab and Ngrok and is built with Python and Streamlit. In order to save memory the models and tokenizers required for the app are loaded in from Google Drive.
-
-You can find it here:
-http://38e8c8a09f5a.ngrok.io
-
-Here is a link to a short presentation describing my project and process at a conceptual level.
-
+Here is a link to a short presentation describing my project and process at a conceptual level:
 https://www.loom.com/share/87a8d7df933f40089cce8fb3e3341934
 
 ## Project Summary

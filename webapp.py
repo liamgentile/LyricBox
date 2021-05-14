@@ -150,7 +150,7 @@ if st.button("Generate"):
 		generated_text = hiphop_generate_text(prompt, word_count, hiphop_model)
 		
 	# extra layer of language control
-	if "nigg" not in generated_text:
+	if "X" not in generated_text:
 		try:
 			st.write(generated_text)
    

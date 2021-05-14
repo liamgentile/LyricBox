@@ -47,7 +47,7 @@ For optimizing the models, I had a number of different considerations. Some of t
 2. computation times
 3. accuracy scores (although this could not be trusted always)
 
-Some of the most important parameters that I tweeked to improve model performance were:
+Some of the most important parameters that I tweaked to improve model performance were:
 1. window length 
 2. structure of arrays 
 3. Model Width (Neurons)

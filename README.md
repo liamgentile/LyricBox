@@ -30,7 +30,7 @@ To start, I made three lists of artists from their respective genres. I formatte
 
 ### Model Optimization
 
-### How could my project be improved?
+### How could this project be improved?
 
 
 

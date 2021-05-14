@@ -30,7 +30,11 @@ To start, I made three lists of artists from their respective genres. I formatte
 
 #### 2. Song Lyric Collection
 
+For song lyric collection I utilised my dictionary of songs mapped to their artists, and after some further URL formatting, I looped through this dictionary in order to scrape the lyrics. I pulled in the lyrics line by line in order to have more flexibility when cleaning the data later on. I used Zyte's webscraping API, and pulled out the text body from the html. You can see a more in depth explanation of this process and the code in the folder called WebScraping Notebooks.
+
 ### Data Cleaning
+
+There were a number of data quality issues. Some of the lyrics had to be scrapped entirely due to containing a large amount of non-lyric content (extra, unwanted text from the html). I also removed duplicates, covers, and remixes. At a line by line level I removed lines from songs where there was usage of potentially offensive language and where there was non lyrical content such as a title saying "Verse" or "Chorus". In preparation for the vectorization process I removed all punctuation and capitalization from the corpus. You can see this data cleaning process in the notebook entitled DataCleaning.ipynb.
 
 ### Modeling
 

@@ -34,7 +34,7 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
-client = boto3.client('s3')
+client = boto3.client('s3', 'us-east-2')
 client.download_file('lyricbox',
 		     'models',
                      'folk_lyrics_RNN_model4.h5',
@@ -150,7 +150,7 @@ if st.button("Generate"):
 		generated_text = hiphop_generate_text(prompt, word_count, hiphop_model)
 		
 	# extra layer of language control
-	if "X" not in generated_text:
+	if "nigg" not in generated_text:
 		try:
 			st.write(generated_text)
    

@@ -6,6 +6,10 @@ The web application for people to use LyricBox runs through Google Colab and Ngr
 You can find it here:
 http://38e8c8a09f5a.ngrok.io
 
+Here is a link to a short presentation describing my project and process at a conceptual level.
+
+https://www.loom.com/share/87a8d7df933f40089cce8fb3e3341934
+
 ## Project Summary
 
 ### Premise

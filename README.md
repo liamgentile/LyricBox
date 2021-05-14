@@ -38,10 +38,24 @@ There were a number of data quality issues. Some of the lyrics had to be scrappe
 
 ### Modeling
 
+For modeling I used Sequential RNNs with Tensorflow and Keras. I utilised Google Colab Pro with High RAM and GPU in order to run these computationally intensive models in a reasonable amount of time. My final models had three hidden layers, with two being LSTM layers, which very generally are neural network layers that work well with sequential or time series data (and hence text data). I found that a good neuron count for the hidden layers was 700-350-175, and a suitable number of epochs was around 250. You can find notebooks detailing the final models in the folder entitled Modeling. 
+
 ### Model Optimization
 
-### How could this project be improved?
+For optimizing the models, I had a number of different considerations. Some of the most important considerations were:
+1. subjective quality of generate_text output
+2. computation times
+3. accuracy scores (although this could not be trusted always)
 
+Some of the most important parameters that I tweeked to improve model performance were:
+1. window length 
+2. structure of arrays 
+3. Model Width (Neurons)
+4. Model Length (Epochs)
+
+### Reflections / How could this project be improved?
+
+This project could be improved with more data, more computational power, and more time. I intentionally used less data than I could have because of the very computationally intensive nature of neural networks. Because my project is an idea generator, I was not attached to the idea of creating perfect english outputs, but rather generally sensical, interesting ideas. I think it achieves this goal, but if I had more time I would spend more time on model optimization and increase the data. 
 
 
 ## File Reference List

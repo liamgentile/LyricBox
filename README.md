@@ -37,4 +37,7 @@ To start, I made three lists of artists from their respective genres. I formatte
 ## File Reference List
 
 LyricBoxWebApp.ipynb
-- a google colab notebook that runs the web app for LyricBox. Includes the web app code.
+- a notebook that runs the web app for LyricBox. Includes the web app code.
+
+DataCleaning.ipynb
+- a notebook in which I did most of the data preprocessing for the three lyric datasets.

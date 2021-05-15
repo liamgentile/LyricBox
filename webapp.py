@@ -4,6 +4,7 @@ import numpy as np
 from tensorflow.keras.preprocessing.text import Tokenizer
 import s3fs
 import h5py
+import pickle
 
 '''
 # Lyric Box

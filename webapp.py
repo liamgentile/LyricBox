@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.models import Sequential
 import s3fs
 import h5py
 import pickle
@@ -58,7 +59,7 @@ def folk_generate_text(prompt, word_count, folk_model):
       network_input = network_input.reshape((1, (len(processed_phrase)))) 
 
       # the RNN gives the probability of each word as the next one
-      predict_proba = model.predict(network_input)[0] 
+      predict_proba = folk_model.predict(network_input)[0] 
       
       # sample one word using these chances
       predicted_index = np.random.choice(number_of_classes_folk, 1, p=predict_proba)[0]
@@ -74,7 +75,7 @@ def folk_generate_text(prompt, word_count, folk_model):
 
 
 
-def pop_generate_text(prompt, word_count, pop):
+def pop_generate_text(prompt, word_count, pop_model):
 
 	   # process for the model
     number_of_classes_pop = 26262
@@ -84,7 +85,7 @@ def pop_generate_text(prompt, word_count, pop):
       network_input = network_input.reshape((1, (len(processed_phrase)))) 
 
       # the RNN gives the probability of each word as the next one
-      predict_proba = model.predict(network_input)[0] 
+      predict_proba = pop_model.predict(network_input)[0] 
       
       # sample one word using these chances
       predicted_index = np.random.choice(number_of_classes_pop, 1, p=predict_proba)[0]
@@ -100,7 +101,7 @@ def pop_generate_text(prompt, word_count, pop):
 
 
 
-def hiphop_generate_text(prompt, word_count, hiphop):
+def hiphop_generate_text(prompt, word_count, hiphop_model):
 
 	   # process for the model
     number_of_classes_hiphop = 47324
@@ -110,7 +111,7 @@ def hiphop_generate_text(prompt, word_count, hiphop):
       network_input = network_input.reshape((1, (len(processed_phrase)))) 
 
       # the RNN gives the probability of each word as the next one
-      predict_proba = model.predict(network_input)[0] 
+      predict_proba = hiphop_model.predict(network_input)[0] 
       
       # sample one word using these chances
       predicted_index = np.random.choice(number_of_classes_hiphop, 1, p=predict_proba)[0]

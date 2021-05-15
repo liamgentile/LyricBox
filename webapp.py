@@ -8,6 +8,7 @@ import tensorflow.keras
 import pickle
 import zipfile
 import tempfile
+import s3fs
 
 '''
 # LyricBox

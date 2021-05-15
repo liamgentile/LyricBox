@@ -165,5 +165,6 @@ if st.button("Generate"):
 '''
 #### LyricBox is a project by Liam Gentile, a Toronto based data scientist. 
 ##### If you have any questions or comments about this project, please contact me at liam.gentile@mail.mcgill.ca.
+##### You can also find out more about this project from the Github page: https://github.com/liamgentile/LyricBox/blob/main/webapp.py.
 '''
 

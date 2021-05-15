@@ -3,4 +3,4 @@ numpy==1.19.3
 streamlit==0.81.1
 tensorflow-cpu==2.2.1
 h5py==2.7.0
-s3fs=2021.5.0
+s3fs

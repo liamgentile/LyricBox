@@ -26,7 +26,7 @@ import h5py
 prompt = st.text_input('Type your prompt here.')
 
 word_count_options = [5, 10, 15, 20, 25]
-word_count = st.selectbox("How many words do you want to generate?", word_count_options, 10)
+word_count = st.selectbox("How many words do you want to generate?", word_count_options, 15)
 
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options, 'folk')

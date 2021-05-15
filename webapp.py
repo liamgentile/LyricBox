@@ -4,9 +4,9 @@ import numpy as np
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.models import load_model
-import s3fs
-import h5py
 import pickle
+import zipfile
+import tempfile
 
 '''
 # LyricBox
@@ -34,12 +34,22 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
-s3 = s3fs.S3FileSystem()
+def s3_get_keras_model(model_name: str) -> keras.Model:
+  with tempfile.TemporaryDirectory() as tempdir:
+    s3fs = get_s3fs()
+    # Fetch and save the zip file to the temporary directory
+    s3fs.get(f"{lyricbox}/{models}/{model_name}.zip", f"{tempdir}/{model_name}.zip")
+    # Extract the model zip file within the temporary directory
+    with zipfile.ZipFile(f"{tempdir}/{model_name}.zip") as zip_ref:
+        zip_ref.extractall(f"{tempdir}/{model_name}")
+    # Load the keras model from the temporary directory
+    return keras.models.load_model(f"{tempdir}/{model_name}")
+  
 
 # importing models from s3 bucket
-folk_model = h5py.File(s3.open("s3://lyricbox/models/folk_lyrics_RNN_model4.h5", "rb"))
-folk_model = h5py.File(s3.open("s3://lyricbox/models/pop_lyric_model.h5", "rb"))
-folk_model = h5py.File(s3.open("s3://lyricbox/models/rap_lyric_model.h5", "rb"))
+folk_model = s3_get_keras_model("folk_lyrics_RNN_model4.h5")
+folk_model = s3_get_keras_model("pop_lyric_model.h5")
+folk_model = s3_get_keras_model("rap_lyric_model.h5")
 
 
 #tokenizer_folk import

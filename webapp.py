@@ -68,7 +68,7 @@ def folk_generate_text(prompt, word_count, folk_model):
       
 
   # indices mapped to words - the method expects a list of lists so we need the extra bracket
-      output_phrase = tokenizer.sequences_to_texts([processed_phrase])[0]
+      output_phrase = tokenizer_folk.sequences_to_texts([processed_phrase])[0]
 
     return output_phrase
 
@@ -94,7 +94,7 @@ def pop_generate_text(prompt, word_count, pop):
       
 
   # indices mapped to words - the method expects a list of lists so we need the extra bracket
-      output_phrase = tokenizer.sequences_to_texts([processed_phrase])[0]
+      output_phrase = tokenizer_pop.sequences_to_texts([processed_phrase])[0]
 
     return output_phrase
 
@@ -120,7 +120,7 @@ def hiphop_generate_text(prompt, word_count, hiphop):
       
 
   # indices mapped to words - the method expects a list of lists so we need the extra bracket
-      output_phrase = tokenizer.sequences_to_texts([processed_phrase])[0]
+      output_phrase = tokenizer_hiphop.sequences_to_texts([processed_phrase])[0]
 
     return output_phrase
 

@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 from keras.preprocessing.text import Tokenizer
 import keras.models 
+import s3fs
+import h5py
 
 '''
 # Lyric Box
@@ -30,12 +32,11 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options, 'folk pop blend')
 
-#folk_model import
-folk_model = load_model('models/folk_lyrics_RNN_model4.h5')
-#pop_model import
-pop_model = load_model('models/pop_lyric_model.h5')
-#hiphop_model import
-hiphip_model = load_model('models/rap_lyric_model.h5')
+s3 = s3fs.S3FileSystem()
+# importing models from s3 bucket
+folk_model = h5py.File(s3.open("s3://lyricbox/models/folk_lyrics_RNN_model4.h5", "rb"))
+folk_model = h5py.File(s3.open("s3://lyricbox/models/pop_lyric_model.h5", "rb"))
+folk_model = h5py.File(s3.open("s3://lyricbox/models/rap_lyric_model.h5", "rb"))
 
 
 #tokenizer_folk import

@@ -4,6 +4,7 @@ import numpy as np
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.models import load_model
+import tensorflow.keras
 import pickle
 import zipfile
 import tempfile
@@ -34,7 +35,7 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
-def s3_get_keras_model(model_name: str) -> keras.Model:
+def s3_get_keras_model(model_name: str) -> tensorflow.keras.Model:
   with tempfile.TemporaryDirectory() as tempdir:
     s3fs = get_s3fs()
     # Fetch and save the zip file to the temporary directory

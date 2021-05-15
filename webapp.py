@@ -7,7 +7,7 @@ import h5py
 import pickle
 
 '''
-# Lyric Box
+# LyricBox
 '''
 '''
 ### A neural network powered idea generator for artists with writer's block.
@@ -141,6 +141,16 @@ if st.button("Generate"):
 			raise ValueError('I think you may have input a word that is not in the vocabulary. Please try again with a different prompt.')
 	else:
 		st.write("Please try again.")
+		
+'''
+-----------
+'''
+'''
+-----------
+'''
 
-
+'''
+### LyricBox is a project by Liam Gentile, a Toronto based data scientist. 
+##### If you have any questions or comments about this project, please contact me at liam.gentile@mail.mcgill.ca.
+'''
 

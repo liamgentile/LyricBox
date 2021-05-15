@@ -5,7 +5,6 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.models import load_model
 import s3fs
-import h5py
 import pickle
 
 '''
@@ -37,7 +36,7 @@ genres = st.selectbox("Which genre do you want to stylize your idea generator?",
 s3 = s3fs.S3FileSystem()
 # importing models from s3 bucket
 folk_model = load_model(s3.open("s3://lyricbox/models/folk_lyrics_RNN_model4.h5", "rb"))
-folk_model = load_model(s3.open("s3://lyricbox/models/pop_lyric_model.h5", "rb")))
+folk_model = load_model(s3.open("s3://lyricbox/models/pop_lyric_model.h5", "rb"))
 folk_model = load_model(s3.open("s3://lyricbox/models/rap_lyric_model.h5", "rb"))
 
 

@@ -29,7 +29,7 @@ word_count_options = [5, 10, 15, 20, 25]
 word_count = st.selectbox("How many words do you want to generate?", word_count_options, 10)
 
 genre_options = ['folk', 'pop', 'hip hop']
-genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options, 'folk pop blend')
+genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options, 'folk')
 
 s3 = s3fs.S3FileSystem()
 # importing models from s3 bucket

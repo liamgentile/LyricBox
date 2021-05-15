@@ -129,21 +129,21 @@ def hiphop_generate_text(prompt, word_count, hiphop):
 
 
 if st.button("Generate"):
-	if genres == 'folk':
-		generated_text = folk_generate_text(prompt, word_count, folk_model)
-	if genres == 'pop':
-		generated_text = pop_generate_text(prompt, word_count, pop_model)
-		st.write(generated_text)
-	if genres == 'hip hop':
-		generated_text = hiphop_generate_text(prompt, word_count, hiphop_model)
+if genres == 'folk':
+generated_text = folk_generate_text(prompt, word_count, folk_model)
+if genres == 'pop':
+generated_text = pop_generate_text(prompt, word_count, pop_model)
+st.write(generated_text)
+if genres == 'hip hop':
+generated_text = hiphop_generate_text(prompt, word_count, hiphop_model)
 
-  	if "nigg" not in generated_text:
-    		try:
-			st.write(generated_text)
-    		except:
-      			raise ValueError('I think you may have input a word that is not in the vocabulary. Please try again with a different prompt.')
-  	else:
-    		st.write("Please try again.")
+if "nigg" not in generated_text:
+	try:
+		st.write(generated_text)
+	except:
+		raise ValueError('I think you may have input a word that is not in the vocabulary. Please try again with a different prompt.')
+else:
+	st.write("Please try again.")
 
 
 

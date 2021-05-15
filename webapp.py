@@ -150,7 +150,7 @@ if st.button("Generate"):
 '''
 
 '''
-### LyricBox is a project by Liam Gentile, a Toronto based data scientist. 
+#### LyricBox is a project by Liam Gentile, a Toronto based data scientist. 
 ##### If you have any questions or comments about this project, please contact me at liam.gentile@mail.mcgill.ca.
 '''
 

@@ -52,7 +52,7 @@ def folk_generate_text(prompt, word_count, folk_model):
 
     # process for the model
     number_of_classes_folk = 29826
-    processed_phrase = tokenizer_folk.texts_to_sequences([input_phrase])[0]
+    processed_phrase = tokenizer_folk.texts_to_sequences([prompt])[0]
     for i in range(next_words):
       network_input = np.array(processed_phrase[-(len(processed_phrase)):], dtype=np.float32)
       network_input = network_input.reshape((1, (len(processed_phrase)))) 
@@ -78,7 +78,7 @@ def pop_generate_text(prompt, word_count, pop):
 
 	   # process for the model
     number_of_classes_pop = 26262
-    processed_phrase = tokenizer_pop.texts_to_sequences([input_phrase])[0]
+    processed_phrase = tokenizer_pop.texts_to_sequences([prompt])[0]
     for i in range(next_words):
       network_input = np.array(processed_phrase[-(len(processed_phrase)):], dtype=np.float32)
       network_input = network_input.reshape((1, (len(processed_phrase)))) 
@@ -104,7 +104,7 @@ def hiphop_generate_text(prompt, word_count, hiphop):
 
 	   # process for the model
     number_of_classes_hiphop = 47324
-    processed_phrase = tokenizer_hiphop.texts_to_sequences([input_phrase])[0]
+    processed_phrase = tokenizer_hiphop.texts_to_sequences([prompt])[0]
     for i in range(next_words):
       network_input = np.array(processed_phrase[-(len(processed_phrase)):], dtype=np.float32)
       network_input = network_input.reshape((1, (len(processed_phrase)))) 

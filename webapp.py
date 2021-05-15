@@ -40,14 +40,11 @@ folk_model = h5py.File(s3.open("s3://lyricbox/models/rap_lyric_model.h5", "rb"))
 
 
 #tokenizer_folk import
-with open('tokenizers/folk_tokenizer.pkl', 'rb') as handle:
-    tokenizer_folk = pickle.load(handle)
+tokenizer_folk = pickle.load(open('tokenizers/folk_tokenizer.pkl','rb'))
 #tokenizer_pop import
-with open('tokenizers/pop_tokenizer.pkl', 'rb') as handle:
-    tokenizer_pop = pickle.load(handle)
+tokenizer_pop = pickle.load(open('tokenizers/pop_tokenizer.pkl','rb'))
 #tokenizer_hiphop import
-with open('tokenizers/rap_tokenizer.pkl', 'rb') as handle:
-    tokenizer_hiphop = pickle.load(handle)
+tokenizer_hiphop = pickle.load(open('tokenizers/rap_tokenizer.pkl','rb'))
 
 
 

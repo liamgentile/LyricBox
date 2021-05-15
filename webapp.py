@@ -130,12 +130,12 @@ def hiphop_generate_text(prompt, word_count, hiphop):
 
 if st.button("Generate"):
 if genres == 'folk':
-generated_text = folk_generate_text(prompt, word_count, folk_model)
+	generated_text = folk_generate_text(prompt, word_count, folk_model)
 if genres == 'pop':
-generated_text = pop_generate_text(prompt, word_count, pop_model)
-st.write(generated_text)
+	generated_text = pop_generate_text(prompt, word_count, pop_model)
+
 if genres == 'hip hop':
-generated_text = hiphop_generate_text(prompt, word_count, hiphop_model)
+	generated_text = hiphop_generate_text(prompt, word_count, hiphop_model)
 
 if "nigg" not in generated_text:
 	try:

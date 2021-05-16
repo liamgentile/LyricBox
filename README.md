@@ -58,14 +58,11 @@ The environmental consequences of neural networks should not be overlooked, and 
 
 ## File Reference List
 
-LyricBoxWebApp.ipynb
-- a notebook that runs the web app for LyricBox. Includes the web app code.
+WebScrapingNotebooks
+- contains the notebooks in which I scraped the song names and song lyrics from AZ-lyrics.com
 
 DataCleaning.ipynb
 - a notebook in which I did most of the data preprocessing for the three lyric datasets.
-
-WebScrapingNotebooks
-- contains the notebooks in which I scraped the song names and song lyrics from AZ-lyrics.com
 
 Modeling
 - contains the notebooks in which I arranged and ran the final models for the three genres of lyrics. 

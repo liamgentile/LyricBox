@@ -43,6 +43,7 @@ genres = st.selectbox("Which genre do you want to stylize your idea generator?",
 def get_s3fs():
   return s3fs.S3FileSystem()
 
+
 def s3_get_keras_model(model_name: str) -> tensorflow.keras.Model:
   with tempfile.TemporaryDirectory() as tempdir:
     s3 = get_s3fs()

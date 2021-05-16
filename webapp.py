@@ -39,11 +39,15 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
+
+def get_s3fs():
+  return s3fs.S3FileSystem()
+
 def s3_get_keras_model(model_name: str) -> tensorflow.keras.Model:
   with tempfile.TemporaryDirectory() as tempdir:
-    s3 = s3fs.S3FileSystem()
+    s3 = get_s3fs()
     # Fetch and save the zip file to the temporary directory
-    s3.get(f"{BUCKET_NAME}/{model_folder}/{model_name}.zip", f"{tempdir}/{model_name}.zip")
+    s3.get(f"{BUCKET_NAME}/{model_name}.zip", f"{tempdir}/{model_name}.zip")
     # Extract the model zip file within the temporary directory
     with zipfile.ZipFile(f"{tempdir}/{model_name}.zip") as zip_ref:
         zip_ref.extractall(f"{tempdir}/{model_name}")
@@ -51,7 +55,6 @@ def s3_get_keras_model(model_name: str) -> tensorflow.keras.Model:
     return keras.models.load_model(f"{tempdir}/{model_name}")
   
   
-
 # importing models from s3 bucket
 folk_model = s3_get_keras_model("folk_lyrics_RNN_model4.h5")
 folk_model = s3_get_keras_model("pop_lyric_model.h5")

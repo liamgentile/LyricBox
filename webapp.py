@@ -46,9 +46,8 @@ def get_s3fs():
 
 def s3_get_keras_model(model_name: str) -> tensorflow.keras.Model:
   with tempfile.TemporaryDirectory() as tempdir:
-    s3fs = get_s3fs()
     # Fetch and save the zip file to the temporary directory
-    s3fs.get(f"{BUCKET_NAME}/{model_folder}/{model_name}.zip", f"{tempdir}/{model_folder}/{model_name}.zip")
+    get_s3fs(f"{BUCKET_NAME}/{model_folder}/{model_name}.zip", f"{tempdir}/{model_folder}/{model_name}.zip")
     # Extract the model zip file within the temporary directory
     with zipfile.ZipFile(f"{tempdir}/{model_folder}/{model_name}.zip") as zip_ref:
         zip_ref.extractall(f"{tempdir}/{model_folder}/{model_name}")

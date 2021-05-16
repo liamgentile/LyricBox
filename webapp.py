@@ -11,7 +11,7 @@ import tempfile
 import s3fs
 
 BUCKET_NAME="s3://lyricbox"
-model_folder="models"
+model_folder="/models"
 
 '''
 # LyricBox

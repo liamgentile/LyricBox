@@ -7,8 +7,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras import Model
 import pickle
 import s3fs
-import h5py
-import gcsfs
+from smart_open import open
 
 
 '''
@@ -37,29 +36,14 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
-folk_model_path = 'gs://lyricbox/webapp/models/folk_lyrics_RNN_model4.h5'
-pop_model_path = 'gs://lyricbox/webapp/models/pop_lyric_model.h5'
-hiphop_model_path = 'gs://lyricbox/webapp/models/rap_lyric_model.h5'
+with open('s3://lyricbox/models/folk_lyrics_RNN_model4.h5', 'rb') as folk:
+	folk_model = load_model(folk, compile=False)
 
+with open('s3://lyricbox/models/pop_lyric_model.h5', 'rb') as pop:
+	pop_model = load_model(pop, compile=False)
 
-PROJECT_NAME = 'My First Project'
-CREDENTIALS = 'dev-guild-313721-9bb72cc6030b.json'
-
-FS = gcsfs.GCSFileSystem(project=PROJECT_NAME,
-                         token=CREDENTIALS)
-FS.ls('lyricbox')
-
-with FS.open(folk_model_path, 'rb') as model_file_f:
-     model_gcs_f = h5py.File(model_file_f, 'r')
-     folk_model = load_model(model_gcs_f)
-			     
-with FS.open(pop_model_path, 'rb') as model_file_p:
-     model_gcs_p = h5py.File(model_file_p, 'r')
-     pop_model = load_model(model_gcs_p)
-			     
-with FS.open(hiphop_model_path, 'rb') as model_file_h:
-     model_gcs_h = h5py.File(model_file_h, 'r')
-     hiphop_model = load_model(model_gcs_h)			    
+with open('s3://lyricbox/models/rap_lyric_model.h5', 'rb') as hiphop:
+	hiphop_model = load_model(hiphop, compile=False)
 
 
 #tokenizer_folk import

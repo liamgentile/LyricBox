@@ -48,18 +48,18 @@ def s3_get_keras_model(model_name: str) -> Model:
   with tempfile.TemporaryDirectory() as tempdir:
     s3fs = get_s3fs()
     # Fetch and save the zip file to the temporary directory
-    s3fs.get(f"{BUCKET_NAME}/{model_folder}/{model_name}.zip", f"{tempdir}/{model_folder}/{model_name}.zip")
+    s3fs.get(f"{BUCKET_NAME}/{model_folder}/{model_name}".zip, f"{tempdir}/{model_folder}/{model_name}".zip)
     # Extract the model zip file within the temporary directory
-    with zipfile.ZipFile(f"{tempdir}/{model_folder}/{model_name}.zip") as zip_ref:
+    with zipfile.ZipFile(f"{tempdir}/{model_folder}/{model_name}".zip) as zip_ref:
         zip_ref.extractall(f"{tempdir}/{model_folder}/{model_name}")
     # Load the keras model from the temporary directory
     return load_model(f"{tempdir}/{model_folder}/{model_name}")
   
   
 # importing models from s3 bucket
-folk_model = s3_get_keras_model("folk_lyrics_RNN_model4.h5")
-folk_model = s3_get_keras_model("pop_lyric_model.h5")
-folk_model = s3_get_keras_model("rap_lyric_model.h5")
+folk_model = s3_get_keras_model('folk_lyrics_RNN_model4.h5')
+folk_model = s3_get_keras_model('pop_lyric_model.h5')
+folk_model = s3_get_keras_model('rap_lyric_model.h5')
 
 
 #tokenizer_folk import

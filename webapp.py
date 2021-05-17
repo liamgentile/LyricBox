@@ -38,9 +38,30 @@ genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
 
-folk_model = load_model('gs://lyricbox/webapp/models/folk_lyrics_RNN_model4.h5', compile=False)
-pop_model = load_model('gs://lyricbox/webapp/models/pop_lyric_model.h5', compile=False)
-hiphop_model = load_model('gs://lyricbox/webapp/models/rap_lyric_model.h5', compile=False)
+from tensorflow.python.lib.io import file_io
+folk_file = file_io.FileIO('gs://lyricbox/webapp/models/folk_lyrics_RNN_model4.h5', mode='rb')
+pop_file = file_io.FileIO('gs://lyricbox/webapp/models/pop_lyric_model.h5', mode='rb')
+hiphop_file = file_io.FileIO('gs://lyricbox/webapp/models/rap_lyric_model.h5', mode='rb')
+
+temp_model_location_f = './temp_folk.h5'
+temp_model_file_f = open(temp_model_location_f, 'wb')
+temp_model_file_f.write(folk_file.read())
+temp_model_file_f.close()
+folk_file.close()
+
+temp_model_location_p = './temp_pop.h5'
+temp_model_file_p = open(temp_model_location_p, 'wb')
+temp_model_file_p.write(pop_file.read())
+temp_model_file_p.close()
+pop_file.close()
+
+temp_model_location_h = './temp_hiphop.h5'
+temp_model_file_h = open(temp_model_location_h, 'wb')
+temp_model_file_h.write(hiphop_file.read())
+temp_model_file_h.close()
+hiphop_file.close()
+
+
 
 
 

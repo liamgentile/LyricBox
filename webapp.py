@@ -7,6 +7,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras import Model
 import pickle
 import s3fs
+import h5py
 from smart_open import open
 
 

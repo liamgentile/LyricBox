@@ -10,8 +10,6 @@ import zipfile
 import tempfile
 import s3fs
 
-BUCKET_NAME="s3://lyricbox"
-model_folder="models"
 
 '''
 # LyricBox
@@ -40,26 +38,31 @@ genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
 
-def get_s3fs():
-  return s3fs.S3FileSystem(anon=False)
-
-
-def s3_get_keras_model(model_name: str) -> Model:
-  with tempfile.TemporaryDirectory() as tempdir:
-    s3fs = get_s3fs()
-    # Fetch and save the zip file to the temporary directory
-    s3fs.get(f"{BUCKET_NAME}/{model_folder}/{model_name}".zip, f"{tempdir}/{model_folder}/{model_name}".zip)
-    # Extract the model zip file within the temporary directory
-    with zipfile.ZipFile(f"{tempdir}/{model_folder}/{model_name}".zip) as zip_ref:
-        zip_ref.extractall(f"{tempdir}/{model_folder}/{model_name}")
-    # Load the keras model from the temporary directory
-    return load_model(f"{tempdir}/{model_folder}/{model_name}")
+from tensorflow.python.lib.io import file_io
+folk_file = file_io.FileIO('s3://lyricbox/models/folk_lyrics_RNN_model4.h5', mode='rb')
+pop_file = file_io.FileIO('s3://lyricbox/models/pop_lyric_model.h5', mode='rb')
+hiphop_file = file_io.FileIO('s3://lyricbox/models/rap_lyric_model.h5', mode='rb')
   
-  
-# importing models from s3 bucket
-folk_model = s3_get_keras_model('folk_lyrics_RNN_model4.h5')
-folk_model = s3_get_keras_model('pop_lyric_model.h5')
-folk_model = s3_get_keras_model('rap_lyric_model.h5')
+temp_model_location_f = './folk_lyrics_RNN_model4.h5'
+temp_model_file_f = open(temp_model_location_f, 'wb')
+temp_model_file_f.write(folk_file.read())
+temp_model_file_f.close()
+folk_file.close()  
+folk_model = load_model(temp_model_location)
+
+temp_model_location_p = './pop_lyric_model.h5'
+temp_model_file_p = open(temp_model_location_p, 'wb')
+temp_model_file_p.write(pop_file.read())
+temp_model_file_p.close()
+pop_file.close()  
+pop_model = load_model(temp_model_location)
+
+temp_model_location_h = './rap_lyric_model.h5'
+temp_model_file_h = open(temp_model_location_h, 'wb')
+temp_model_file_h.write(hiphop_file.read())
+temp_model_file_h.close()
+hiphop_file.close()  
+hiphop_model = load_model(temp_model_location)
 
 
 #tokenizer_folk import
@@ -157,7 +160,7 @@ if st.button("Generate"):
 	if genres == 'hip hop':
 		generated_text = hiphop_generate_text(prompt, word_count, hiphop_model)
 
-	if "X" not in generated_text:
+	if "nigg" not in generated_text:
 		try:
 			st.write(generated_text)
 		except:

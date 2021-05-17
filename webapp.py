@@ -10,7 +10,7 @@ import zipfile
 import tempfile
 import s3fs
 
-BUCKET_NAME="lyricbox"
+BUCKET_NAME="s3://lyricbox"
 model_folder="models"
 
 '''
@@ -44,16 +44,16 @@ def get_s3fs():
   return s3fs.S3FileSystem()
 
 
-def s3_get_keras_model(model_name: str) -> tensorflow.keras.Model:
+def s3_get_keras_model(model_name: str) -> keras.Model:
   with tempfile.TemporaryDirectory() as tempdir:
-    # Fetch and save the zip file to the temporary directory
     s3fs = get_s3fs()
-    s3fs.get(f"{BUCKET_NAME}/{model_folder}/{model_name}.zip", f"{tempdir}/{model_folder}/{model_name}.zip")
+    # Fetch and save the zip file to the temporary directory
+    s3fs.get(f"{BUCKET_NAME}/{model_name}.zip", f"{tempdir}/{model_name}.zip")
     # Extract the model zip file within the temporary directory
-    with zipfile.ZipFile(f"{tempdir}/{model_folder}/{model_name}.zip") as zip_ref:
-        zip_ref.extractall(f"{tempdir}/{model_folder}/{model_name}")
+    with zipfile.ZipFile(f"{tempdir}/{model_name}.zip") as zip_ref:
+        zip_ref.extractall(f"{tempdir}/{model_name}")
     # Load the keras model from the temporary directory
-    return keras.models.load_model(f"{tempdir}/{model_folder}/{model_name}")
+    return keras.models.load_model(f"{tempdir}/{model_name}")
   
   
 # importing models from s3 bucket

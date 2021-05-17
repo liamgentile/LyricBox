@@ -61,7 +61,9 @@ temp_model_file_h.write(hiphop_file.read())
 temp_model_file_h.close()
 hiphop_file.close()
 
-
+folk_model = load_model(temp_model_location_f, compile=False)
+pop_model = load_model(temp_model_location_p, compile=False)
+hiphop_model = load_model(temp_model_location_h, compile=False)
 
 
 

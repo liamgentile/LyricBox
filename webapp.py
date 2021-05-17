@@ -39,9 +39,9 @@ genres = st.selectbox("Which genre do you want to stylize your idea generator?",
 
 
 from tensorflow.python.lib.io import file_io
-folk_file = file_io.FileIO('gs://lyricbox/webapp/models/folk_lyrics_RNN_model4.h5', mode='rb')
-pop_file = file_io.FileIO('gs://lyricbox/webapp/models/pop_lyric_model.h5', mode='rb')
-hiphop_file = file_io.FileIO('gs://lyricbox/webapp/models/rap_lyric_model.h5', mode='rb')
+folk_file = file_io.FileIO('https://storage.googleapis.com/lyricbox/webapp/models/folk_lyrics_RNN_model4.h5', mode='rb')
+pop_file = file_io.FileIO('https://storage.googleapis.com/lyricbox/webapp/models/pop_lyric_model.h5', mode='rb')
+hiphop_file = file_io.FileIO('https://storage.googleapis.com/lyricbox/webapp/models/rap_lyric_model.h5', mode='rb')
   
 temp_model_location_f = './folk_lyrics_RNN_model4.h5'
 temp_model_file_f = open(temp_model_location_f, 'wb')

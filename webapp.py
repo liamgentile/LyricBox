@@ -53,7 +53,7 @@ with FS.open(folk_model_path, 'rb') as model_file_f:
      model_gcs_f = h5py.File(model_file_f, 'r')
      folk_model = load_model(model_gcs_f)
 			     
-with FS.open(folk_model_path, 'rb') as model_file_p:
+with FS.open(pop_model_path, 'rb') as model_file_p:
      model_gcs_p = h5py.File(model_file_p, 'r')
      pop_model = load_model(model_gcs_p)
 			     

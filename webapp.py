@@ -10,7 +10,7 @@ import zipfile
 import tempfile
 import s3fs
 
-BUCKET_NAME="lyricbox"
+BUCKET_NAME="s3://lyricbox"
 model_folder="models"
 
 '''

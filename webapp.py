@@ -6,9 +6,9 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.models import load_model
 from tensorflow.keras import Model
 import pickle
-import zipfile
-import tempfile
 import s3fs
+import h5py
+import gcsfs
 
 
 '''
@@ -37,34 +37,23 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
+folk_model_path = 'gs://lyricbox/webapp/models/folk_lyrics_RNN_model4.h5'
+pop_model_path = 'gs://lyricbox/webapp/models/pop_lyric_model.h5'
+hiphop_model_path = 'gs://lyricbox/webapp/models/rap_lyric_model.h5'
 
-from tensorflow.python.lib.io import file_io
-folk_file = file_io.FileIO('gs://lyricbox/webapp/models/folk_lyrics_RNN_model4.h5', mode='rb')
-pop_file = file_io.FileIO('gs://lyricbox/webapp/models/pop_lyric_model.h5', mode='rb')
-hiphop_file = file_io.FileIO('gs://lyricbox/webapp/models/rap_lyric_model.h5', mode='rb')
+FS = gcsfs.GCSFileSystem()
 
-temp_model_location_f = './temp_folk.h5'
-temp_model_file_f = open(temp_model_location_f, 'wb')
-temp_model_file_f.write(folk_file.read())
-temp_model_file_f.close()
-folk_file.close()
-
-temp_model_location_p = './temp_pop.h5'
-temp_model_file_p = open(temp_model_location_p, 'wb')
-temp_model_file_p.write(pop_file.read())
-temp_model_file_p.close()
-pop_file.close()
-
-temp_model_location_h = './temp_hiphop.h5'
-temp_model_file_h = open(temp_model_location_h, 'wb')
-temp_model_file_h.write(hiphop_file.read())
-temp_model_file_h.close()
-hiphop_file.close()
-
-folk_model = load_model(temp_model_location_f, compile=False)
-pop_model = load_model(temp_model_location_p, compile=False)
-hiphop_model = load_model(temp_model_location_h, compile=False)
-
+with FS.open(folk_model_path, 'rb') as model_file_f:
+     model_gcs_f = h5py.File(model_file_f, 'r)
+     folk_model = load_model(model_gcs_f)
+			     
+with FS.open(folk_model_path, 'rb') as model_file_p:
+     model_gcs_p = h5py.File(model_file_p, 'r)
+     pop_model = load_model(model_gcs_p)
+			     
+with FS.open(hiphop_model_path, 'rb') as model_file_h:
+     model_gcs_h = h5py.File(model_file_h, 'r)
+     hiphop_model = load_model(model_gcs_h)			    
 
 
 #tokenizer_folk import

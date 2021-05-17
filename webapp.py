@@ -53,7 +53,7 @@ def s3_get_keras_model(model_name: str) -> Model:
     with zipfile.ZipFile(f"{tempdir}/{model_name}.zip") as zip_ref:
         zip_ref.extractall(f"{tempdir}/{model_name}")
     # Load the keras model from the temporary directory
-    return tensorflow.keras.models.load_model(f"{tempdir}/{model_name}")
+    return load_model(f"{tempdir}/{model_name}")
   
   
 # importing models from s3 bucket

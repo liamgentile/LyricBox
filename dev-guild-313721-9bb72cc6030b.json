@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "dev-guild-313721",
+  "private_key_id": "9bb72cc6030bca8e3997019a2e18d98e94440f7a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCuGdOdS+NTS6Tg\nzQdMN5G5UKy7e3Ok2pLkYT4vYE3BpVVuipos3AZu6TnV0A/7uVFaVf3tc5NNqoBM\n5Ya8TTHDYKKzstXg2X4zEuAv/dpwaem/MuaqpBCh+fjztsKOLBD95s4tHdZHGPge\n0h0la74yDOZzYUCQ2nHrKAHA3TGeAneodG1CEDCw4eeBSXxChlUvvslJYBVPhWJr\nb84d+MC+b3JS+hsL1JPK+as7lbY9byPzdr9BNGZWzbgSrnpwp/h3B399wjeMJO31\nfh63ikHoe+dSRPYk0oDcJLm478h0jQR3TGhHjS5RXw6cOURfrWlDgH0VmkkSYbqC\nfapbHAb5AgMBAAECggEABH0vL9YXrwhU4JfIwWLv0FrPj8H3uF9xlcJM65HMtdqA\n4NAueEujPgbbckzieWrmbLFDUkHYB9+gKtto/vMkMYjZvE83JPLWrMbaBI+QeBq/\nzfZ1Bh9W1aZWKfDwN63UZLrBXcTWlCmFQRFjDDNb/K38El65xUJf2S1d5jT0PsIZ\ncPV8BhP1Y3Qgl2upbMPRn08x5EUu2dRHn9RjtYkzfehzfIvsB+p0wKyEVrIhA6vu\nRkoMlwaw4kGHgf/s4Zd5yCfLCFGL8wCVUWanHEV/YykSfyH8vxNon0omw+QgH4Lj\nNXgwhNBsTQBY1xtcaW2fo1V8NY2ALrRqoXRkcTa3ZQKBgQDVGHhGj6dQ5NNmTUCZ\njbMZr0Xnr/vXXqz4d1m7eqzAAbZu72D1zf2SuBy8KXsdjMLGkQZz+rD9q+hlbMAg\nVnbJpoVc+pJuntvDks6Wt2G5VbK5M/fONEbHXsjF40W89BH/FBC/ZubY3twxaKDZ\n1bbf2kQBAQs7a1DHoBl75i0v5wKBgQDRJ3aQRA/QZzPbaaBYeeqYYWmj9dLoUA6F\nRFjsMv2NrHXmmtz1g6L4PKKqiAykWvbo2Y6sIaBrSAbW6n5iHSsBe1ckSH/yaiE2\ncnIgsOTOKZPA6xzoRVxaCBLz60jIFH3hnEmCH73zLrld0IQY+XWpxv6PraUuhtPn\nuS472SO2HwKBgAuWpRPRRBwWFZj+ooC3QAIpkfejjmKL94QbmXmkljhq32zw/6je\nZufPs2BYMSXOPdlmkZ9FBtMEwkKhw2D+0r7sm1wPFF+HrBPaq/luR5Y4ntuLg/Jm\nzWKSOQDp9yTrcP8aLD78bZllpTvaoMS35pYN3JzhXacBkwcIIdqnDdYJAoGAT8Zy\nlaIwOfgzMlw+eaC+1zJIne40bMGkWDZyiF0GkxQVwEiPQOHdtjtCfDL6R3IevT/G\nCGenDWRin3S/keK4NY969G7mxmquklripw9xpiT7o1jKJNnX2Ms9l2XF0/Lk9Lms\n3AIJbIkE0QCocfIsa/5nuBuuZmmsx7S9Kryuv1cCgYAGNxo+8WYs8I79AGRlUfvW\n1t5Zey+IB8NghAhUd+4ldrcBvz07MlZEjoC2uibpKPq8j7zuDDftMKC/VycIMHvo\nPSJ9E+NFW44kzhsRbpcgCIh328K3XRzka3uwo3k6U6HzrfrmqfeQL6lmDha79fAV\nWuB4ATkQulvPQBNeYhLaYQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "lyricbox@dev-guild-313721.iam.gserviceaccount.com",
+  "client_id": "108993890584756768279",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/lyricbox%40dev-guild-313721.iam.gserviceaccount.com"
+}

@@ -4,7 +4,7 @@ import numpy as np
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.models import load_model
-import tensorflow.keras
+from tensorflow.keras import Model
 import pickle
 import zipfile
 import tempfile
@@ -44,7 +44,7 @@ def get_s3fs():
   return s3fs.S3FileSystem()
 
 
-def s3_get_keras_model(model_name: str) -> keras.Model:
+def s3_get_keras_model(model_name: str) -> Model:
   with tempfile.TemporaryDirectory() as tempdir:
     s3fs = get_s3fs()
     # Fetch and save the zip file to the temporary directory
@@ -53,7 +53,7 @@ def s3_get_keras_model(model_name: str) -> keras.Model:
     with zipfile.ZipFile(f"{tempdir}/{model_name}.zip") as zip_ref:
         zip_ref.extractall(f"{tempdir}/{model_name}")
     # Load the keras model from the temporary directory
-    return keras.models.load_model(f"{tempdir}/{model_name}")
+    return tensorflow.keras.models.load_model(f"{tempdir}/{model_name}")
   
   
 # importing models from s3 bucket

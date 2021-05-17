@@ -47,7 +47,7 @@ CREDENTIALS = 'dev-guild-313721-9bb72cc6030b.json'
 
 FS = gcsfs.GCSFileSystem(project=PROJECT_NAME,
                          token=CREDENTIALS)
-
+FS.ls('lyricbox')
 
 with FS.open(folk_model_path, 'rb') as model_file_f:
      model_gcs_f = h5py.File(model_file_f, 'r')

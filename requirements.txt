@@ -5,3 +5,4 @@ tensorflow-cpu==2.2.1
 s3fs
 smart_open==1.10.1
 h5py
+boto3

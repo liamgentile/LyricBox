@@ -36,13 +36,13 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
-with open('s3://lyricbox/models/folk_lyrics_RNN_model4.h5', 'rb') as folk:
+with open('s3://lyricbox/models/folk_lyrics_RNN_model4.h5') as folk:
 	folk_model = load_model(folk, compile=False)
 
-with open('s3://lyricbox/models/pop_lyric_model.h5', 'rb') as pop:
+with open('s3://lyricbox/models/pop_lyric_model.h5') as pop:
 	pop_model = load_model(pop, compile=False)
 
-with open('s3://lyricbox/models/rap_lyric_model.h5', 'rb') as hiphop:
+with open('s3://lyricbox/models/rap_lyric_model.h5') as hiphop:
 	hiphop_model = load_model(hiphop, compile=False)
 
 

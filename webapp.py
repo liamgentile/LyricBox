@@ -38,9 +38,9 @@ genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
 
-folk_model = load_model('https://storage.googleapis.com/lyricbox/webapp/models/folk_lyrics_RNN_model4.h5', compile=False)
-pop_model = load_model('https://storage.googleapis.com/lyricbox/webapp/models/pop_lyric_model.h5', compile=False)
-hiphop_model = load_model('https://storage.googleapis.com/lyricbox/webapp/models/rap_lyric_model.h5', compile=False)
+folk_model = load_model('gs://lyricbox/webapp/models/folk_lyrics_RNN_model4.h5', compile=False)
+pop_model = load_model('gs://lyricbox/webapp/models/pop_lyric_model.h5', compile=False)
+hiphop_model = load_model('gs://lyricbox/webapp/models/rap_lyric_model.h5', compile=False)
 
 
 

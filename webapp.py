@@ -41,19 +41,19 @@ genres = st.selectbox("Which genre do you want to stylize your idea generator?",
 
 
 def get_s3fs():
-  return s3fs.S3FileSystem()
+  return s3fs.S3FileSystem(anon=False)
 
 
 def s3_get_keras_model(model_name: str) -> Model:
   with tempfile.TemporaryDirectory() as tempdir:
     s3fs = get_s3fs()
     # Fetch and save the zip file to the temporary directory
-    s3fs.get(f"{BUCKET_NAME}/{model_name}.zip", f"{tempdir}/{model_name}.zip")
+    s3fs.get(f"{BUCKET_NAME}/{model_folder}/{model_name}.zip", f"{tempdir}/{model_folder}/{model_name}.zip")
     # Extract the model zip file within the temporary directory
-    with zipfile.ZipFile(f"{tempdir}/{model_name}.zip") as zip_ref:
-        zip_ref.extractall(f"{tempdir}/{model_name}")
+    with zipfile.ZipFile(f"{tempdir}/{model_folder}/{model_name}.zip") as zip_ref:
+        zip_ref.extractall(f"{tempdir}/{model_folder}/{model_name}")
     # Load the keras model from the temporary directory
-    return load_model(f"{tempdir}/{model_name}")
+    return load_model(f"{tempdir}/{model_folder}/{model_name}")
   
   
 # importing models from s3 bucket
@@ -157,7 +157,7 @@ if st.button("Generate"):
 	if genres == 'hip hop':
 		generated_text = hiphop_generate_text(prompt, word_count, hiphop_model)
 
-	if "X" not in generated_text:
+	if "nigg" not in generated_text:
 		try:
 			st.write(generated_text)
 		except:

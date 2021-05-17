@@ -41,7 +41,13 @@ folk_model_path = 'gs://lyricbox/webapp/models/folk_lyrics_RNN_model4.h5'
 pop_model_path = 'gs://lyricbox/webapp/models/pop_lyric_model.h5'
 hiphop_model_path = 'gs://lyricbox/webapp/models/rap_lyric_model.h5'
 
-FS = gcsfs.GCSFileSystem()
+
+PROJECT_NAME = 'My First Project'
+CREDENTIALS = 'dev-guild-313721-9bb72cc6030b.json'
+
+FS = gcsfs.GCSFileSystem(project=PROJECT_NAME,
+                         token=CREDENTIALS)
+
 
 with FS.open(folk_model_path, 'rb') as model_file_f:
      model_gcs_f = h5py.File(model_file_f, 'r')

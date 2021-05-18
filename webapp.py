@@ -9,8 +9,7 @@ import pickle
 import s3fs
 import h5py
 import boto3
-import tempfile
-
+import io
 
 '''
 # LyricBox

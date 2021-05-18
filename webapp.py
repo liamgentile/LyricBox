@@ -40,9 +40,9 @@ genres = st.selectbox("Which genre do you want to stylize your idea generator?",
 
 s3 = s3fs.S3FileSystem()
 
-folk_model = load_model(s3.open('s3://lyricbox/models/folk_lyrics_RNN_model4.h5', compile=False), 'rb') 
-pop_model = load_model(s3.open('s3://lyricbox/models/pop_lyric_model.h5', compile=False), 'rb')
-hiphop_model = load_model(s3.open('s3://lyricbox/models/rap_lyric_model.h5', compile=False), 'rb')
+folk_model = load_model(s3.open('s3://lyricbox/models/folk_lyrics_RNN_model4.h5', compile=False)) 
+pop_model = load_model(s3.open('s3://lyricbox/models/pop_lyric_model.h5', compile=False))
+hiphop_model = load_model(s3.open('s3://lyricbox/models/rap_lyric_model.h5', compile=False))
 
 #tokenizer_folk import
 tokenizer_folk = pickle.load(s3.open('s3://lyricbox/tokenizers/folk_tokenizer.pkl','rb'))

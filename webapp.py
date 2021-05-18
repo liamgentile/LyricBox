@@ -38,7 +38,7 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
-s3 = s3fs.S3FileSystem(anon=True)
+s3 = s3fs.S3FileSystem()
 
 folk_model = load_model(s3.open('s3://lyricbox/models/folk_lyrics_RNN_model4.h5', compile=False), 'rb') 
 pop_model = load_model(s3.open('s3://lyricbox/models/pop_lyric_model.h5', compile=False), 'rb')

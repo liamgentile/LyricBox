@@ -40,9 +40,9 @@ genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
 
-folk_model = load_model('s3://lyricbox/models/folk_lyrics_RNN_model4.h5', compile=False) 
-pop_model = load_model('s3://lyricbox/models/pop_lyric_model.h5', compile=False) 
-hiphop_model = load_model('s3://lyricbox/models/rap_lyric_model.h5', compile=False) 
+folk_model = load_model('s3://lyricbox/models/folk_lyrics_RNN_model4.h5') 
+pop_model = load_model('s3://lyricbox/models/pop_lyric_model.h5') 
+hiphop_model = load_model('s3://lyricbox/models/rap_lyric_model.h5') 
 
 
 	

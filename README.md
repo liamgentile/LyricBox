@@ -68,3 +68,7 @@ DataCleaning.ipynb
 
 Modeling
 - contains the notebooks in which I arranged and ran the final models for the three genres of lyrics. 
+
+web_application
+- folder containing the necessary files for running the streamlit/heroku web app, most notably webapp.py
+

@@ -4,7 +4,7 @@ import numpy as np
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.models import load_model
-from tensorflow.keras.utils.data_utils import get_file
+from keras.utils.data_utils import get_file
 import pickle
 import h5py
 

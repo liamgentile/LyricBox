@@ -35,23 +35,18 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
-folk = get_file('folk', 'https://lyricbox.s3.us-east-2.amazonaws.com/models/folk_lyrics_RNN_model4.h5')
+folk = get_file('folk_m', 'https://lyricbox.s3.us-east-2.amazonaws.com/models/folk_lyrics_RNN_model4.h5')
 folk_model = load_model(folk, compile=False)
 
-pop = get_file('folk', 'https://lyricbox.s3.us-east-2.amazonaws.com/models/pop_lyric_model.h5')
+pop = get_file('pop_m', 'https://lyricbox.s3.us-east-2.amazonaws.com/models/pop_lyric_model.h5')
 pop_model = load_model(pop, compile=False)
 
-hiphop = get_file('folk', 'https://lyricbox.s3.us-east-2.amazonaws.com/models/rap_lyric_model.h5')
+hiphop = get_file('hiphop_m', 'https://lyricbox.s3.us-east-2.amazonaws.com/models/rap_lyric_model.h5')
 hiphop_model = load_model(hiphop, compile=False)
 
-s3 = s3fs.S3FileSystem()
-
-#tokenizer_folk import
-tokenizer_folk = pickle.load(s3.open('s3://lyricbox/tokenizers/folk_tokenizer.pkl','rb'))
-#tokenizer_pop import
-tokenizer_pop = pickle.load(s3.open('s3://lyricbox/tokenizers/pop_tokenizer.pkl','rb'))
-#tokenizer_hiphop import
-tokenizer_hiphop = pickle.load(s3.open('s3://lyricbox/tokenizers/rap_tokenizer.pkl','rb'))
+tokenizer_folk = pickle.load('tokenizers/folk_tokenizer.pkl','rb')
+tokenizer_pop = pickle.load('tokenizers/pop_tokenizer.pkl','rb')
+tokenizer_hiphop = pickle.load('tokenizers/rap_tokenizer.pkl','rb')
 
 
 def folk_generate_text(prompt, word_count, folk_model):

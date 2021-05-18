@@ -39,17 +39,14 @@ genres = st.selectbox("Which genre do you want to stylize your idea generator?",
 
 s3_client = boto3.client('s3')
 
-s3_client.download_file('lyricbox', 'models', 'folk_lyrics_RNN_model4.h5')
-with h5py.File('folk_lyrics_RNN_model4.h5', 'r') as f:
-	folk_model = load_model(f, compile=False)
+f = s3_client.download_file('lyricbox', 'models', 'folk_lyrics_RNN_model4.h5')
+folk_model = load_model(f, compile=False)
 
-s3_client.download_file('lyricbox', 'models', 'pop_lyric_model.h5')
-with h5py.File('pop_lyric_model.h5', 'r') as p:
-	pop_model = load_model(p, compile=False)
+p = s3_client.download_file('lyricbox', 'models', 'pop_lyric_model.h5')
+pop_model = load_model(p, compile=False)
 
-s3_client.download_file('lyricbox', 'models', 'rap_lyric_model.h5')
-with h5py.File('rap_lyric_model.h5', 'r') as h:
-	hiphop_model = load_model(h, compile=False)
+h = s3_client.download_file('lyricbox', 'models', 'rap_lyric_model.h5')
+hiphop_model = load_model(h, compile=False)
 
 
 #tokenizer_folk import

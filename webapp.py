@@ -40,7 +40,7 @@ genres = st.selectbox("Which genre do you want to stylize your idea generator?",
 
 
 s3 = boto3.resource('s3', region_name='us-east-2')
-bucket = s3.Bucket('lyricbox)
+bucket = s3.Bucket('lyricbox')
 		   
 object_f = bucket.Object('models/folk_lyrics_RNN_model4.h5')
 tmp_f = tempfile.NamedTemporaryFile()

@@ -39,6 +39,7 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
+s3 = s3fs.S3FileSystem(anon=False)
 
 with s3.open('lyricbox/models/folk_lyrics_RNN_model4.h5', 'rb') as f:
      g_f = gzip.GzipFile(fileobj=f)  # Decompress data with gzip

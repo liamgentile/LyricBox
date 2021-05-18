@@ -3,8 +3,7 @@ import pandas as pd
 import numpy as np
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.models import load_model
-from tensorflow import keras
+from keras.models import load_model
 import pickle
 import s3fs
 import h5py
@@ -40,9 +39,9 @@ genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
 
-folk_model = load_model('s3://lyricbox/models/folk_lyrics_RNN_model4.h5') 
-pop_model = load_model('s3://lyricbox/models/pop_lyric_model.h5') 
-hiphop_model = load_model('s3://lyricbox/models/rap_lyric_model.h5') 
+folk_model = load_model('s3://lyricbox/models/folk_lyrics_RNN_model4.h5', compile=False) 
+pop_model = load_model('s3://lyricbox/models/pop_lyric_model.h5', compile=False) 
+hiphop_model = load_model('s3://lyricbox/models/rap_lyric_model.h5', compile=False) 
 
 
 	

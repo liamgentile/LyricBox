@@ -43,14 +43,14 @@ pop_model = load_model(pop, compile=False)
 hiphop = get_file('hiphop_m', 'https://lyricbox.s3.us-east-2.amazonaws.com/models/rap_lyric_model.h5')
 hiphop_model = load_model(hiphop, compile=False)
 
-t_f =  get_file('folk_t', 'https://lyricbox.s3.us-east-2.amazonaws.com/tokenizers/folk_tokenizer.pkl') 
-tokenizer_folk = pickle.load(t_f, 'r')
+t_f = open('s3://lyricbox/tokenizers/folk_tokenizer.pkl', 'r')
+tokenizer_folk = pickle.load(t_f)
 
-t_p =  get_file('pop_t', 'https://lyricbox.s3.us-east-2.amazonaws.com/tokenizers/pop_tokenizer.pkl') 
-tokenizer_pop = pickle.load(t_p, 'r')
+t_p =  open('s3://lyricbox/tokenizers/pop_tokenizer.pkl', 'r') 
+tokenizer_pop = pickle.load(t_p)
 
-t_h =  get_file('hiphop_t', 'https://lyricbox.s3.us-east-2.amazonaws.com/tokenizers/rap_tokenizer.pkl') 
-tokenizer_hiphop = pickle.load(t_h, 'r')
+t_h =  open('s3://lyricbox/tokenizers/rap_tokenizer.pkl', 'r') 
+tokenizer_hiphop = pickle.load(t_h)
 
 def folk_generate_text(prompt, word_count, folk_model):
 

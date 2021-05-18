@@ -7,6 +7,7 @@ from tensorflow.keras.models import load_model
 from keras.utils.data_utils import get_file
 import pickle
 import h5py
+import s3fs
 
 '''
 # LyricBox
@@ -42,6 +43,8 @@ pop_model = load_model(pop, compile=False)
 
 hiphop = get_file('folk', 'https://lyricbox.s3.us-east-2.amazonaws.com/models/rap_lyric_model.h5')
 hiphop_model = load_model(hiphop, compile=False)
+
+s3 = s3fs.S3FileSystem()
 
 #tokenizer_folk import
 tokenizer_folk = pickle.load(s3.open('s3://lyricbox/tokenizers/folk_tokenizer.pkl','rb'))

@@ -7,7 +7,6 @@ from tensorflow.keras.models import load_model
 from keras.utils.data_utils import get_file
 import pickle
 import h5py
-import boto3
 
 '''
 # LyricBox
@@ -45,21 +44,13 @@ hiphop = get_file('hiphop_m', 'https://lyricbox.s3.us-east-2.amazonaws.com/model
 hiphop_model = load_model(hiphop, compile=False)
 
 
-s3 = boto3.resource('s3')
-
-with open('s3://lyricbox/tokenizers/folk_tokenizer.pkl', 'wb') as data_f:
-    s3.Bucket("lyricbox").download_fileobj("folk_tokenizer.pkl", data_f)
-with open('folk_tokenizer.pkl', 'rb') as data_f:
+with open('tokenizers/folk_tokenizer.pkl', 'rb') as data_f:
     tokenizer_folk = pickle.load(data_f)
 
-with open('s3://lyricbox/tokenizers/pop_tokenizer.pkl', 'wb') as data_p:
-    s3.Bucket("lyricbox").download_fileobj("pop_tokenizer.pkl", data_p)
-with open('pop_tokenizer.pkl', 'rb') as data_p:
+with open('tokenizers/pop_tokenizer.pkl', 'rb') as data_p:
     tokenizer_pop = pickle.load(data_p)
 
-with open('s3://lyricbox/tokenizers/rap_tokenizer.pkl', 'wb') as data_h:
-    s3.Bucket("lyricbox").download_fileobj("rap_tokenizer.pkl", data_h)
-with open('folk_tokenizer.pkl', 'rb') as data_h:
+with open('tokenizers/folk_tokenizer.pkl', 'rb') as data_h:
     tokenizer_hiphop = pickle.load(data_h)
 
 def folk_generate_text(prompt, word_count, folk_model):

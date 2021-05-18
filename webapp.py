@@ -44,9 +44,7 @@ folder = 'models'
 def s3_get_keras_model(model_name: str) -> keras.Model:
   with tempfile.TemporaryDirectory() as tempdir:
     s3 = s3fs.S3FileSystem()
-    # Fetch and save the zip file to the temporary directory
-    s3.get(f"{BUCKET_NAME}/{folder}/{model_name}", f"{tempdir}/{folder}/{model_name}")
-    # Extract the model zip file within the temporary directory
+    s3.get(f"{BUCKET_NAME}/{folder}/{model_name}")
     with zipfile.ZipFile(f"{tempdir}/{folder}/{model_name}.zip") as zip_ref:
         zip_ref.extractall(f"{tempdir}/{folder}/{model_name}")
     # Load the keras model from the temporary directory

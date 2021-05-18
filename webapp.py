@@ -9,6 +9,7 @@ import pickle
 import s3fs
 import h5py
 import boto3
+import tempfile
 
 
 '''
@@ -37,16 +38,30 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
-s3_client = boto3.client('s3')
 
-f = s3_client.download_file('lyricbox', 'models', 'folk_lyrics_RNN_model4.h5')
-folk_model = load_model(f, compile=False)
+s3 = boto3.resource('s3', region_name='us-east-2')
+bucket = s3.Bucket('lyricbox)
+		   
+object_f = bucket.Object('models/folk_lyrics_RNN_model4.h5')
+tmp_f = tempfile.NamedTemporaryFile()
 
-p = s3_client.download_file('lyricbox', 'models', 'pop_lyric_model.h5')
-pop_model = load_model(p, compile=False)
+object_p = bucket.Object('models/pop_lyric_model.h5')
+tmp_p = tempfile.NamedTemporaryFile()
+		   
+object_h = bucket.Object('models/rap_lyric_model.h5.h5')
+tmp_h = tempfile.NamedTemporaryFile()		   
 
-h = s3_client.download_file('lyricbox', 'models', 'rap_lyric_model.h5')
-hiphop_model = load_model(h, compile=False)
+with open(tmp_f.name, 'wb') as f:
+    object_f.download_fileobj(f)
+    folk_model=load_model(tmp_f.name, compile=False)
+
+with open(tmp_p.name, 'wb') as p:
+    object_p.download_fileobj(p)
+    pop_model=load_model(tmp_p.name, compile=False)
+		   
+with open(tmp_h.name, 'wb') as h:
+    object_h.download_fileobj(h)
+    hiphop_model=load_model(tmp_h.name, compile=False)		   
 
 
 #tokenizer_folk import

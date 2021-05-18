@@ -4,4 +4,3 @@ streamlit==0.82.0
 tensorflow-cpu==2.4.1
 keras==2.4.3
 h5py==2.10.0
-boto3

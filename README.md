@@ -6,8 +6,6 @@ You can find the web application here: https://lyric-box.herokuapp.com.
 Here is a link to a short presentation describing my project and process at a conceptual level:
 https://www.loom.com/share/87a8d7df933f40089cce8fb3e3341934
 
-I am currently in the process of finding a permanent home for the LyricBox webapp. I will update that here as soon as it is launched.
-
 ## Project Summary
 
 ### Premise

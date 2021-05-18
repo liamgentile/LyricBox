@@ -1,7 +1,7 @@
 pandas
 numpy
 streamlit==0.81.1
-tensorflow-cpu
+tensorflow-cpu==2.1.0
 keras
 s3fs==0.4.2
 h5py

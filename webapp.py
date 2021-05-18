@@ -39,19 +39,13 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
-s3 = s3fs.S3FileSystem(anon=False)
 
-with s3.open('lyricbox/models/folk_lyrics_RNN_model4.h5', 'rb') as f:
-     g_f = gzip.GzipFile(fileobj=f)  # Decompress data with gzip
-     folk_model = load_model(g_f, compile=False) 
+folk_model = load_model('s3://lyricbox/models/folk_lyrics_RNN_model4.h5', compile=False) 
+pop_model = load_model('s3://lyricbox/models/pop_lyric_model.h5', compile=False) 
+hiphop_model = load_model('s3://lyricbox/models/rap_lyric_model.h5', compile=False) 
 
-with s3.open('lyricbox/models/pop_lyric_model.h5', 'rb') as p:
-     g_p = gzip.GzipFile(fileobj=p)  # Decompress data with gzip
-     pop_model = load_model(g_p, compile=False) 
 
-with s3.open('lyricbox/models/rap_lyric_model.h5', 'rb') as h:
-     g_h = gzip.GzipFile(fileobj=h)  # Decompress data with gzip
-     hiphop_model = load_model(g_h, compile=False) 	
+	
 
 
 #tokenizer_folk import

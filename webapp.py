@@ -41,18 +41,15 @@ s3_client = boto3.client('s3')
 
 s3_client.download_file('lyricbox', 'models', 'folk_lyrics_RNN_model4.h5')
 with h5py.File('folk_lyrics_RNN_model4.h5', 'r') as f:
-    f_data = f
-folk_model = load_model(f_data, compile=False)
+	folk_model = load_model(f, compile=False)
 
 s3_client.download_file('lyricbox', 'models', 'pop_lyric_model.h5')
 with h5py.File('pop_lyric_model.h5', 'r') as p:
-    p_data = p
-pop_model = load_model(p_data, compile=False)
+	pop_model = load_model(p, compile=False)
 
 s3_client.download_file('lyricbox', 'models', 'rap_lyric_model.h5')
 with h5py.File('rap_lyric_model.h5', 'r') as h:
-    h_data = h
-hiphop_model = load_model(h_data, compile=False)
+	hiphop_model = load_model(h, compile=False)
 
 
 #tokenizer_folk import
@@ -150,7 +147,7 @@ if st.button("Generate"):
 	if genres == 'hip hop':
 		generated_text = hiphop_generate_text(prompt, word_count, hiphop_model)
 
-	if "X" not in generated_text:
+	if "nigg" not in generated_text:
 		try:
 			st.write(generated_text)
 		except:

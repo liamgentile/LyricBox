@@ -11,6 +11,7 @@ import h5py
 import boto3
 import tempfile
 import zipfile
+import gzip
 
 '''
 # LyricBox
@@ -38,22 +39,19 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
-BUCKET_NAME = 'lyricbox'
-folder = 'models'
 
-def s3_get_keras_model(model_name: str) -> keras.Model:
-  with tempfile.TemporaryDirectory() as tempdir:
-    s3 = s3fs.S3FileSystem()
-    final_path = 'lyricbox/models/{}'.format(model_name)
-    s3.get(final_path)
-    with zipfile.ZipFile(f"{tempdir}/{folder}/{model_name}.zip") as zip_ref:
-        zip_ref.extractall(f"{tempdir}/{folder}/{model_name}")
-    # Load the keras model from the temporary directory
-    return load_model(f"{tempdir}/{folder}/{model_name}", compile=False)
+with s3.open('lyricbox/models/folk_lyrics_RNN_model4.h5', 'rb') as f:
+     g_f = gzip.GzipFile(fileobj=f)  # Decompress data with gzip
+     folk_model = load_model(g_f, compile=False) 
 
-folk_model = s3_get_keras_model('folk_lyrics_RNN_model4.h5')
-pop_model = s3_get_keras_model('pop_lyric_model.h5')
-hiphop_model = s3_get_keras_model('rap_lyric_model.h5')
+with s3.open('lyricbox/models/pop_lyric_model.h5', 'rb') as p:
+     g_p = gzip.GzipFile(fileobj=p)  # Decompress data with gzip
+     pop_model = load_model(g_p, compile=False) 
+
+with s3.open('lyricbox/models/rap_lyric_model.h5', 'rb') as h:
+     g_h = gzip.GzipFile(fileobj=h)  # Decompress data with gzip
+     hiphop_model = load_model(g_h, compile=False) 	
+
 
 #tokenizer_folk import
 tokenizer_folk = pickle.load(s3.open('s3://lyricbox/tokenizers/folk_tokenizer.pkl','rb'))

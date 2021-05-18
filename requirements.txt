@@ -3,5 +3,4 @@ numpy==1.19.5
 streamlit==0.82.0
 tensorflow-cpu==2.4.1
 keras==2.4.3
-s3fs==0.4.2
 h5py==2.10.0

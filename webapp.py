@@ -54,7 +54,6 @@ tokenizer_pop = pickle.load(s3.open('s3://lyricbox/tokenizers/pop_tokenizer.pkl'
 tokenizer_hiphop = pickle.load(s3.open('s3://lyricbox/tokenizers/rap_tokenizer.pkl','rb'))
 
 
-
 def folk_generate_text(prompt, word_count, folk_model):
 
     # process for the model

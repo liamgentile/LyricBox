@@ -43,25 +43,19 @@ s3 = boto3.resource('s3', region_name='us-east-2')
 bucket = s3.Bucket('lyricbox')
 		   
 object_f = bucket.Object('models/folk_lyrics_RNN_model4.h5')
-tmp_f = tempfile.NamedTemporaryFile()
+f = io.BytesIO()
+object_f.download_fileobj(f)
+folk_model = load_model(f, compile=False)
 
 object_p = bucket.Object('models/pop_lyric_model.h5')
-tmp_p = tempfile.NamedTemporaryFile()
+p = io.BytesIO()
+object_p.download_fileobj(p)
+pop_model = load_model(p, compile=False)
 		   
-object_h = bucket.Object('models/rap_lyric_model.h5.h5')
-tmp_h = tempfile.NamedTemporaryFile()		   
-
-with open(tmp_f.name, 'wb') as f:
-    object_f.download_fileobj(f)
-    folk_model=load_model(tmp_f.name, compile=False)
-
-with open(tmp_p.name, 'wb') as p:
-    object_p.download_fileobj(p)
-    pop_model=load_model(tmp_p.name, compile=False)
-		   
-with open(tmp_h.name, 'wb') as h:
-    object_h.download_fileobj(h)
-    hiphop_model=load_model(tmp_h.name, compile=False)		   
+object_h = bucket.Object('models/rap_lyric_model.h5')
+h = io.BytesIO()
+object_f.download_fileobj(h)
+hiphop_model = load_model(h, compile=False)	   
 
 
 #tokenizer_folk import

@@ -7,7 +7,6 @@ from tensorflow.keras.models import load_model
 from keras.utils.data_utils import get_file
 import pickle
 import h5py
-import s3fs
 
 '''
 # LyricBox

@@ -4,13 +4,9 @@ import numpy as np
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.models import Sequential
 from keras.models import load_model
+from keras.utils.data_utils import get_file
 import pickle
-import s3fs
 import h5py
-import boto3
-import tempfile
-import zipfile
-import gzip
 
 '''
 # LyricBox
@@ -38,11 +34,14 @@ word_count = st.selectbox("How many words do you want to generate?", word_count_
 genre_options = ['folk', 'pop', 'hip hop']
 genres = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
 
-s3 = s3fs.S3FileSystem()
+folk = get_file('folk', 'https://lyricbox.s3.us-east-2.amazonaws.com/models/folk_lyrics_RNN_model4.h5')
+folk_model = load_model(folk, compile=False)
 
-folk_model = load_model(s3.open('s3://lyricbox/models/folk_lyrics_RNN_model4.h5', compile=False)) 
-pop_model = load_model(s3.open('s3://lyricbox/models/pop_lyric_model.h5', compile=False))
-hiphop_model = load_model(s3.open('s3://lyricbox/models/rap_lyric_model.h5', compile=False))
+pop = get_file('folk', 'https://lyricbox.s3.us-east-2.amazonaws.com/models/pop_lyric_model.h5')
+pop_model = load_model(pop, compile=False)
+
+hiphop = get_file('folk', 'https://lyricbox.s3.us-east-2.amazonaws.com/models/rap_lyric_model.h5')
+hiphop_model = load_model(hiphop, compile=False)
 
 #tokenizer_folk import
 tokenizer_folk = pickle.load(s3.open('s3://lyricbox/tokenizers/folk_tokenizer.pkl','rb'))
@@ -139,7 +138,7 @@ if st.button("Generate"):
 	if genres == 'hip hop':
 		generated_text = hiphop_generate_text(prompt, word_count, hiphop_model)
 
-	if "X" not in generated_text:
+	if "nigg" not in generated_text:
 		try:
 			st.write(generated_text)
 		except:

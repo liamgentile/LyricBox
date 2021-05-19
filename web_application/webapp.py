@@ -43,9 +43,9 @@ hiphop = get_file('hiphop_m', 'https://lyricbox.s3.us-east-2.amazonaws.com/model
 hiphop_model = load_model(hiphop, compile=False)
 
 
-tokenizer_folk = pickle.load(open('folk_tokenizer.pkl', 'rb'))
-tokenizer_pop = pickle.load(open('pop_tokenizer.pkl', 'rb'))
-tokenizer_hiphop = pickle.load(open('rap_tokenizer.pkl', 'rb'))
+tokenizer_folk = pickle.load(open('web_application/folk_tokenizer.pkl', 'rb'))
+tokenizer_pop = pickle.load(open('web_application/pop_tokenizer.pkl', 'rb'))
+tokenizer_hiphop = pickle.load(open('web_application/rap_tokenizer.pkl', 'rb'))
 
 def folk_generate_text(prompt, word_count, folk_model):
 
@@ -133,7 +133,7 @@ if st.button("Generate"):
 	if genres == 'hip hop':
 		generated_text = hiphop_generate_text(prompt, word_count, hiphop_model)
 
-	if "X" not in generated_text:
+	if "nigg" not in generated_text:
 		try:
 			st.write(generated_text)
 		except:
@@ -151,5 +151,5 @@ if st.button("Generate"):
 '''
 #### LyricBox is a project by Liam Gentile, a Toronto based data scientist. 
 ##### If you have any questions or comments about this project, please contact me at liam.gentile@mail.mcgill.ca.
-##### You can also find out more about this project from the Github page: https://github.com/liamgentile/LyricBox/blob/main/webapp.py.
+##### You can also find out more about this project from the Github page: https://github.com/liamgentile/LyricBox.
 '''

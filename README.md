@@ -1,10 +1,10 @@
 # LyricBox
 A neural network powered idea generator for artists with writer's block.
 
-You can find the web application here: https://lyric-box.herokuapp.com.
-
 Here is a link to a short presentation describing my project and process at a conceptual level:
 https://www.loom.com/share/87a8d7df933f40089cce8fb3e3341934
+
+**Note: The Web Application is currently dormant (due to high monthly maintenance costs)**
 
 ## Project Summary
 

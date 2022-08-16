@@ -4,7 +4,7 @@ A neural network powered idea generator for artists with writer's block.
 Here is a link to a short presentation describing my project and process at a conceptual level:
 https://www.loom.com/share/87a8d7df933f40089cce8fb3e3341934
 
-**Note: The Web Application is currently dormant (due to high monthly maintenance costs)**
+Web Application: https://lyric-box.herokuapp.com/
 
 ## Project Summary
 

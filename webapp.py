@@ -17,9 +17,6 @@ import h5py
 
 '''
 #### Notes:
-	
-	- Avoid punctuation and capitalization in your prompt.
-	eg. write "i cant help it" not "I can't help it."
 	- I made an effort to remove potentially offensive 
 	  language from the vocabulary of the models. If, however, 
 	  something unsavoury is generated, this is simply by chance 

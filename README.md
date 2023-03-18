@@ -51,10 +51,7 @@ Some of the most important parameters that I tweaked to improve model performanc
 
 ### Reflections / How could this project be improved?
 
-This project could be improved with more data, more computational power, and more time. I intentionally used less data than I could have because of the very computationally intensive nature of neural networks. Because my project is an idea generator, I was not attached to the idea of creating perfect english outputs, but rather generally sensical, interesting ideas. I think it achieves this goal, but if I had more time I would spend more time on model optimization and collect more data. 
-
-The environmental consequences of neural networks should not be overlooked, and this is a concern that I have with building even bigger models. 
-
+This project could be improved with more data, more computational power, and more time. I intentionally used less data than I could have because of the  computationally intensive nature of neural networks. Because my project is an idea generator, I was not attached to the idea of creating perfect english outputs, but rather generally sensical, interesting ideas. I think it achieves this goal, but if I had more time I would spend more time on model optimization and collect more data. 
 
 ## File Reference List
 

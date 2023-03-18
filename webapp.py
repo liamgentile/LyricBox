@@ -15,13 +15,6 @@ import h5py
 ### A neural network powered idea generator for artists with writer's block.
 '''
 
-'''
-#### Notes:
-	- I made an effort to remove potentially offensive 
-	  language from the vocabulary of the models. If, however, 
-	  something unsavoury is generated, this is simply by chance 
-	  and is not a view of the creator. 
-'''
 prompt = st.text_input('Type your prompt here.')
 
 word_count_options = [5, 10, 15, 20, 25]

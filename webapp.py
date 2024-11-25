@@ -1,8 +1,6 @@
 import streamlit as st 
 import pandas as pd
 import numpy as np
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.models import Sequential
 from tensorflow.keras.models import load_model
 from tensorflow.python.keras.utils.data_utils import get_file
 import pickle

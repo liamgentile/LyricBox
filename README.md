@@ -1,7 +1,10 @@
 # LyricBox
 A neural network powered idea generator for artists with writer's block.
 
+Site hosted here: https://liamgentile-lyricbox-webapp-ogfo88.streamlit.app/
+
 Here is a link to a short presentation describing my project and process at a conceptual level:
+
 https://www.loom.com/share/87a8d7df933f40089cce8fb3e3341934
 
 ## Project Summary

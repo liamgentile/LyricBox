@@ -21,13 +21,13 @@ Warning: I made an effort to remove potentially offensive language from the voca
 MODEL_URLS = {
     'folk': 'https://lyricbox.s3.us-east-2.amazonaws.com/models/folk_lyrics_RNN_model4.h5',
     'pop': 'https://lyricbox.s3.us-east-2.amazonaws.com/models/pop_lyric_model.h5',
-    'hiphop': 'https://lyricbox.s3.us-east-2.amazonaws.com/models/rap_lyric_model.h5'
+    'hip hop': 'https://lyricbox.s3.us-east-2.amazonaws.com/models/rap_lyric_model.h5'
 }
 
 TOKENIZER_PATHS = {
     'folk': 'web_application/folk_tokenizer.pkl',
     'pop': 'web_application/pop_tokenizer.pkl',
-    'hiphop': 'web_application/rap_tokenizer.pkl'
+    'hip hop': 'web_application/rap_tokenizer.pkl'
 }
 
 models = {}

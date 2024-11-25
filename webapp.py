@@ -12,6 +12,10 @@ import h5py
 '''
 ### A neural network powered idea generator for artists with writer's block.
 '''
+'''
+#### Warning: I made an effort to remove potentially offensive language from the vocabulary of the models, but you may still encounter some unsavoury outputs.  
+'''
+
 
 prompt = st.text_input('Type your prompt here.')
 

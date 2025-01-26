@@ -62,7 +62,7 @@ if st.button("Generate"):
 -----------
 '''
 '''
-LyricBox is a project by Liam Gentile, a Toronto based software developer. 
-If you have any questions or comments about this project, please contact me at liamanthonygentile@gmail.com.
-You can also find out more about this project from the Github page: https://github.com/liamgentile/LyricBox.
+LyricBox is a project by Liam Gentile, a Toronto-based software developer. 
+If you have any questions or comments about this project, please send an email to liamanthonygentile@gmail.com.
+You can also learn more about this project from the GitHub page: https://github.com/liamgentile/LyricBox.
 '''

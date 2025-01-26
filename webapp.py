@@ -11,6 +11,7 @@ import h5py
 '''
 '''
 ### A neural network powered idea generator for artists with writer's block.
+'''
 
 MODEL_URL = 'https://lyricbox.s3.us-east-2.amazonaws.com/models/folk_lyrics_RNN_model4.h5'
 TOKENIZER_PATH = 'web_application/folk_tokenizer.pkl'

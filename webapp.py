@@ -11,40 +11,20 @@ import h5py
 '''
 '''
 ### A neural network powered idea generator for artists with writer's block.
-'''
-'''
-Warning: I made an effort to remove potentially offensive language from the vocabulary of the models, but you may still encounter some unsavoury outputs.  
-'''
 
+MODEL_URL = 'https://lyricbox.s3.us-east-2.amazonaws.com/models/folk_lyrics_RNN_model4.h5'
+TOKENIZER_PATH = 'web_application/folk_tokenizer.pkl'
 
-# Constants for model URLs and tokenizer paths
-MODEL_URLS = {
-    'folk': 'https://lyricbox.s3.us-east-2.amazonaws.com/models/folk_lyrics_RNN_model4.h5',
-    'pop': 'https://lyricbox.s3.us-east-2.amazonaws.com/models/pop_lyric_model.h5',
-    'hip hop': 'https://lyricbox.s3.us-east-2.amazonaws.com/models/rap_lyric_model.h5'
-}
+model_file = get_file('folk_m', MODEL_URL)
+model = load_model(model_file, compile=False)
 
-TOKENIZER_PATHS = {
-    'folk': 'web_application/folk_tokenizer.pkl',
-    'pop': 'web_application/pop_tokenizer.pkl',
-    'hip hop': 'web_application/rap_tokenizer.pkl'
-}
+with open(TOKENIZER_PATH, 'rb') as f:
+    tokenizer = pickle.load(f)
 
-models = {}
-tokenizers = {}
-
-for genre, model_url in MODEL_URLS.items():
-    model_file = get_file(f'{genre}_m', model_url)
-    models[genre] = load_model(model_file, compile=False)
-
-    with open(TOKENIZER_PATHS[genre], 'rb') as f:
-        tokenizers[genre] = pickle.load(f)
+NUMBER_OF_CLASSES = 29826
 
 prompt = st.text_input('Type your prompt here.')
-word_count_options = [5, 10, 15, 20, 25]
-word_count = st.selectbox("How many words do you want to generate?", word_count_options)
-genre_options = ['folk', 'pop', 'hip hop']
-genre = st.selectbox("Which genre do you want to stylize your idea generator?", genre_options)
+DEFAULT_WORD_COUNT = 20
 
 def generate_text(prompt, word_count, model, tokenizer, number_of_classes):
     processed_phrase = tokenizer.texts_to_sequences([prompt])[0]
@@ -64,20 +44,10 @@ def generate_text(prompt, word_count, model, tokenizer, number_of_classes):
 
     return output_phrase
 
-GENRE_CLASSES = {
-    'folk': 29826,
-    'pop': 26262,
-    'hip hop': 47324
-}
-
 if st.button("Generate"):
     if prompt:  
-        model = models[genre]
-        tokenizer = tokenizers[genre]
-        number_of_classes = GENRE_CLASSES[genre]
-
         try:
-            generated_text = generate_text(prompt, word_count, model, tokenizer, number_of_classes)
+            generated_text = generate_text(prompt, DEFAULT_WORD_COUNT, model, tokenizer, NUMBER_OF_CLASSES)
             if "X" not in generated_text:
                 st.write(generated_text)
             else:
@@ -86,14 +56,13 @@ if st.button("Generate"):
             st.write(f"Error generating text: {str(e)}")
     else:
         st.write("Please provide a prompt.")
-		
-'''
------------
-'''
-'''
------------
-'''
 
+'''
+-----------
+'''
+'''
+-----------
+'''
 '''
 #### LyricBox is a project by Liam Gentile, a Toronto based software developer. 
 ##### If you have any questions or comments about this project, please contact me at liamanthonygentile@gmail.com.

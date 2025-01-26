@@ -24,7 +24,7 @@ with open(TOKENIZER_PATH, 'rb') as f:
 NUMBER_OF_CLASSES = 29826
 
 prompt = st.text_input('Type your prompt here.')
-DEFAULT_WORD_COUNT = 20
+WORD_COUNT = 20
 
 def generate_text(prompt, word_count, model, tokenizer, number_of_classes):
     processed_phrase = tokenizer.texts_to_sequences([prompt])[0]
@@ -47,7 +47,7 @@ def generate_text(prompt, word_count, model, tokenizer, number_of_classes):
 if st.button("Generate"):
     if prompt:  
         try:
-            generated_text = generate_text(prompt, DEFAULT_WORD_COUNT, model, tokenizer, NUMBER_OF_CLASSES)
+            generated_text = generate_text(prompt, WORD_COUNT, model, tokenizer, NUMBER_OF_CLASSES)
             if "X" not in generated_text:
                 st.write(generated_text)
             else:

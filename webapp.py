@@ -11,6 +11,10 @@ import h5py
 '''
 '''
 ### A neural network powered idea generator for artists with writer's block.
+
+
+Start by typing a lyric idea, theme, or even just a few words.  
+LyricBox will take your prompt and expand on the idea.
 '''
 
 MODEL_URL = 'https://lyricbox.s3.us-east-2.amazonaws.com/models/folk_lyrics_RNN_model4.h5'
